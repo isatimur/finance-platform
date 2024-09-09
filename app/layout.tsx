@@ -1,4 +1,9 @@
 import type { Metadata } from "next";
+import {
+  ClerkProvider,
+} from '@clerk/nextjs'
+import { QueryProviders } from "@/providers/query-provider";
+
 import localFont from "next/font/local";
 import "./globals.css";
 
@@ -24,12 +29,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+    <ClerkProvider>
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <QueryProviders>
+          {children}
+        </QueryProviders>
       </body>
     </html>
+    </ClerkProvider>
   );
 }
