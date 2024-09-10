@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-
+import { HTTPException } from "hono/http-exception";
 import { client } from "../../../lib/hono";
 
 export const useGetAccounts = () => {
